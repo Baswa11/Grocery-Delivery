@@ -1,4 +1,5 @@
 import React from 'react'
+import ProductCard from './ProductCard'
 
 const BestSeller = () => {
     return (
@@ -7,7 +8,7 @@ const BestSeller = () => {
                 Best Sellers
             </p>
             <div>
-
+                <ProductCard />
             </div>
         </div>
     )
