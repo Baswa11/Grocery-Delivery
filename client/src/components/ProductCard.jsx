@@ -1,5 +1,5 @@
 import React from "react";
-const ProductCard = () => {
+const ProductCard = ({ products }) => {
     const [count, setCount] = React.useState(0);
 
     const product = {

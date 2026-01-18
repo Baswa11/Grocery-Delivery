@@ -9,7 +9,15 @@ const AppContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isSeller, setIsSeller] = useState(false);
     const [showUserLogin, setShowUserLogin] = useState(false);
+    const [products, setProducts] = useState([])
 
+    const fetchProducts = async () => {
+        setProducts(dummyProducts)
+    }
+
+    useEffect(() => {
+        fetchProducts()
+    }, [])
 
     const value = {
         user,
@@ -18,7 +26,8 @@ const AppContextProvider = ({ children }) => {
         setIsSeller,
         showUserLogin,
         setShowUserLogin,
-        navigate
+        navigate,
+        products
     }
 
     return (
