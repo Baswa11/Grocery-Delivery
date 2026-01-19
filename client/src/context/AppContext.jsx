@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const AppContext = createContext();
@@ -11,13 +11,44 @@ const AppContextProvider = ({ children }) => {
     const [showUserLogin, setShowUserLogin] = useState(false);
     const [products, setProducts] = useState([])
 
+    const dummyProducts = [
+        {
+            id: 1,
+            name: "Casual Shoes",
+            category: "Sports",
+            price: 100,
+            offerPrice: 80,
+            rating: 4,
+            image: "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImageWithoutBg.png"
+        },
+        {
+            id: 2,
+            name: "Running Shoes",
+            category: "Sports",
+            price: 120,
+            offerPrice: 90,
+            rating: 5,
+            image: "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImageWithoutBg.png"
+        }
+    ];
+
     const fetchProducts = async () => {
-        setProducts(dummyProducts)
+        try {
+            // In a real app, this would be an API call
+            // const response = await fetch('/api/products');
+            // const data = await response.json();
+            // setProducts(data);
+            
+            // For now, using dummy data
+            setProducts(dummyProducts);
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
     }
 
     useEffect(() => {
-        fetchProducts()
-    }, [])
+        fetchProducts();
+    }, []);
 
     const value = {
         user,
